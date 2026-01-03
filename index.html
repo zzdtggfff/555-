@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anarchy Web App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --accent-color: #ff3e3e;
+            --text-color: #ffffff;
+            --secondary-bg: #1a1a1a;
+            --btn-gradient: linear-gradient(45deg, #8b0000, #ff3e3e);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            background: radial-gradient(circle at center, #1a0505 0%, #0a0a0a 100%);
+        }
+
+        /* Контейнер для страниц */
+        .page {
+            display: none;
+            padding: 20px;
+            animation: fadeIn 0.3s ease-in-out;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--accent-color);
+            text-shadow: 0 0 15px rgba(255, 62, 62, 0.5);
+            margin-bottom: 30px;
+            margin-top: 10px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 5px;
+            width: 100%;
+            margin-top: 25px;
+        }
+
+        .faq-text {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            width: 100%;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        /* Кнопки */
+        .btn-container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .main-btn {
+            background: var(--btn-gradient);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-btn:active {
+            transform: scale(0.95);
+        }
+
+        .secondary-btn {
+            background: #333;
+            border: 1px solid #444;
+        }
+
+        .back-btn {
+            margin-top: 30px;
+            background: transparent;
+            border: 1px solid var(--text-color);
+            padding: 10px 25px;
+            color: white;
+            border-radius: 50px;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main-page" class="page active">
+        <h1>АНАРХИЯ</h1>
+        
+        <div class="btn-container">
+            <a href="https://t.me/+0MdqKhozPZNhODM6" class="main-btn">
+                <span class="emoji">💬</span>Вступить в чат
+            </a>
+
+            <button onclick="showPage('faq-page')" class="main-btn">
+                <span class="emoji">❓</span>Частые вопросы
+            </button>
+
+            <a href="https://t.me/Anarchy2027" class="main-btn">
+                <span class="emoji">🔗</span>Переходник
+            </a>
+
+            <a href="https://t.me/boost?c=2612298766" class="main-btn">
+                <span class="emoji">🚀</span>Бустануть
+            </a>
+
+            <a href="https://t.me/addemoji/numbersandletters" class="main-btn secondary-btn">
+                <span class="emoji">😎</span>Мой эмоджи Пак
+            </a>
+
+            <a href="https://t.me/addstickers/ANARCHY6685" class="main-btn secondary-btn">
+                <span class="emoji">🔥</span>Стикер Пак Анархия
+            </a>
+        </div>
+    </div>
+
+    <div id="faq-page" class="page">
+        <h1 style="font-size: 2rem;">FAQ</h1>
+
+        <h2>Почему удаляют контент 18+?</h2>
+        <div class="faq-text">
+            Потому что нефиг страдать фигнёй! Это чат для общения. Из-за таких нарушений нам просто заблокируют чат. Хотите такое — отправляйте в личку, а не сюда. ⛔
+        </div>
+
+        <h2>Реклама</h2>
+        <div class="faq-text">
+            Реклама в чате строго запрещена! 🚫<br>
+            • 1-й раз: удаление сообщения + варн.<br>
+            • 2-й раз: удаление + мут на 3 часа.
+        </div>
+
+        <h2>Что делать, если чат удалят?</h2>
+        <div class="faq-text">
+            Для этого существует <b>Переходник</b>. Просто подпишись на него заранее. Если чат снесут, новая ссылка появится именно там! 📢
+        </div>
+
+        <h2>Могут ли меня заблокировать?</h2>
+        <div class="faq-text">
+            Да! За частый спам, рекламу или использование ботов-разводил. Таких баним сразу и безвозвратно. 🔨
+        </div>
+
+        <button onclick="showPage('main-page')" class="back-btn">⬅ Назад</button>
+    </div>
+
+    <script>
+        // Инициализация Telegram Web App
+        const tg = window.Telegram.WebApp;
+        tg.expand(); // Развернуть на всё окно
+
+        function showPage(pageId) {
+            // Скрываем все страницы
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            // Показываем нужную
+            document.getElementById(pageId).classList.add('active');
+            // Прокрутка вверх
+            window.scrollTo(0,0);
+        }
+
+        // Настройка главной кнопки Telegram (опционально)
+        tg.BackButton.onClick(() => {
+            showPage('main-page');
+        });
+
+        // Следим за тем, когда показывать кнопку "Назад" в интерфейсе Телеграма
+        function updateTgBackButton() {
+            if (document.getElementById('faq-page').classList.contains('active')) {
+                tg.BackButton.show();
+            } else {
+                tg.BackButton.hide();
+            }
+        }
+
+        // Переопределяем функцию перехода для работы с кнопкой TG
+        const originalShowPage = showPage;
+        showPage = function(pageId) {
+            originalShowPage(pageId);
+            updateTgBackButton();
+        };
+    </script>
+</body>
+</html>
